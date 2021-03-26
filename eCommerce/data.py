@@ -9,7 +9,7 @@ import boto3
 import random
 import pandas as pd
 
-3######################
+#######################
 # Olist Data Pipeline #
 #######################
 
