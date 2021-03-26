@@ -129,15 +129,14 @@ def clean_df(df, key):
 #####################################################################
 
 
-# For Post-Sales Analysis
-def seller(ps, feature='price', id_ = None, resample = '1D', function = 'cumsum'):
+def single_seller(ps, feature='price', seller_id = None, resample = '1D', function = 'cumsum'):
     '''
     A custom function that helps examine a seller's performance over time
     '''
-    if id_ == None:
+    if seller_id == None:
         seller = random.choice([x for x in ps['seller_id']])
     else:
-        seller = id_
+        seller = seller_id
     
     sum_ = pd.DataFrame(ps[ps['seller_id']==seller][feature].resample(resample).sum())
     
@@ -147,16 +146,13 @@ def seller(ps, feature='price', id_ = None, resample = '1D', function = 'cumsum'
     elif function == 'daily_mean':
         return sum_.mean()
     
-    elif function == 'daily_pct_change':
-        return sum_.pct_change()*100
-    
     elif function == 'cumsum':
         return sum_.cumsum()
     
     elif function == 'total_growth':
-        start = sum_.cumsum().iloc[0]
-        end = sum_.cumsum().iloc[-1]
-        return (float((end-start) / start))
+        start = float(sum_.cumsum().iloc[0])
+        end = float(sum_.cumsum().iloc[-1])
+        return ((end - start) / start)
 
     else:
         raise Exception("Invalid function")
