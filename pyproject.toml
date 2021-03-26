@@ -6,8 +6,8 @@ authors = ["Ian Yu <ian.yu@arc.com.co>"]
 
 [tool.poetry]
 packages = [
-    { include = "my-package" },
-    { include = "my-package/**/*.py" },
+    { include = "eCommerce" },
+    { include = "eCommerce/**/*.py" },
 ]
 
 [tool.poetry.dependencies]
