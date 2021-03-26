@@ -3,8 +3,6 @@ name = "eCommerce"
 version = "0.1.2"
 description = "Custom-built package for statistical analysis and predictive modeling on Olist's Kaggle Data"
 authors = ["Ian Yu <ian.yu@arc.com.co>"]
-
-[tool.poetry]
 packages = [
     { include = "eCommerce" },
     { include = "eCommerce/**/*.py" },
@@ -19,4 +17,3 @@ pystan = "^3.0.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
