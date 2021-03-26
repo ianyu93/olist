@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## ## **[Unreleased]**
 - class `PostSalesAnalysis()`
 
+## **[0.1.2] - 2021-03-26**
+### **Changed**
+- BUG FIXED: Package Name to eCommerce
+
 ## **[0.1.1] - 2021-03-26**
 ### **Added**
 - PowerPoint Slides
