@@ -49,7 +49,7 @@ Every analysis should be conducted with having the future development in mind. T
 - Advanced statistical analysis and time series analysis to further examine eCommerce data
 - Various machine learning techniques 
 
-# Post-Technical Assignment Comments
+# Post Technical Assignment Comments
 All work, including the **Future Devleopment** section, except some doc strings and redacting were done for the technical assignment by second last week of March, 2021. It was a take home assignment that I ended up using 2.5 days to complete. The goal was to showcase my approach in funnel analysis as well as the coverage of topics I could cover. In hindsight, packaging and `data.py` could have bee setup differently.
 
 You will also notice that I performed zero machine learning in this project because my personal approach is always try and understand nuances before actaully performing models, and real world implications are always much more complicated than a toy project.
