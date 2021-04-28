@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eCommerce"
-version = "0.1.2"
+version = "0.1.4"
 description = "Custom-built package for statistical analysis and predictive modeling on Olist's Kaggle Data"
 authors = ["Ian Yu <ian.yu@arc.com.co>"]
 packages = [
