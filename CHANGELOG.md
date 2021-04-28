@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## ## **[Unreleased]**
 - class `PostSalesAnalysis()`
 
+## **[0.1.3] - 2021-03-29**
+### **Changed**
+- Fixed EDA Notebook: `total_growth` parameter represents a seller "grew by how many times", not "percentage" as originally stated
+
 ## **[0.1.2] - 2021-03-26**
 ### **Changed**
 - BUG FIXED: Package Name to eCommerce
