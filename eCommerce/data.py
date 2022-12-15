@@ -104,28 +104,23 @@ def clean_df(df, key):
         ]
 
     # If a rule set is available, then pass and continue to clean the dataframe
-    if key in rule_list:
-        pass
-    
-    # Else raise an Exception as there is no rule to clean the data
-    else:
+    if key not in rule_list:
         raise Exception(f"cleaning for {key} is not available yet")
 
 
     # Custom rules to clean Marketing Qualified Leads dataset
     if key == 'marketing_qualified_leads':
-    
+
         # Make first_contact_date datetime datatype
         df['first_contact_date'] = pd.to_datetime(df['first_contact_date'])
-        
+
         # Fill all NaN values with other
         df['origin'].fillna('other', inplace = True)
 
         # Replace all unknown values with other
         df['origin'] = df['origin'].map(lambda x: x.replace("unknown", "other"))
 
-    
-    # Custom rules to clean Closed Deals 
+
     elif key == 'closed_deals':
         '''
         Custom rules to clean closed deals
@@ -138,7 +133,7 @@ def clean_df(df, key):
             'average_stock', 
             'declared_product_catalog_size',
             ]
-        
+
         # A list of columns to only drop where there is NaN
         # Note: Only columns that even when drop NaN values, would not introduce too much bias
         drop_little = [
@@ -152,10 +147,7 @@ def clean_df(df, key):
 
         # drop a given list of columns completely first, then find any data point with NaN values
         df = df.drop(drop_all, axis=1).dropna(how='any', subset=drop_little)
-    
-    else:
-        pass
-    
+
     return df
 
 #####################################################################
@@ -174,22 +166,22 @@ def single_seller(ps, feature='price', seller_id = None, resample = '1D', functi
     resample: str, timeframe to resample. 5M for 5 months, 1Y for 1 year. 1D by default.
     function: str, aggregate function. choice of daily_sum or daily_mean or cumsum or total_growth
     '''
-    if seller_id == None:
-        seller = random.choice([x for x in ps['seller_id']])
+    if seller_id is None:
+        seller = random.choice(list(ps['seller_id']))
     else:
         seller = seller_id
-    
+
     sum_ = pd.DataFrame(ps[ps['seller_id']==seller][feature].resample(resample).sum())
-    
+
     if function == 'daily_sum':
         return sum_
-    
+
     elif function == 'daily_mean':
         return sum_.mean()
-    
+
     elif function == 'cumsum':
         return sum_.cumsum()
-    
+
     elif function == 'total_growth':
         start = float(sum_.cumsum().iloc[0])
         end = float(sum_.cumsum().iloc[-1])
